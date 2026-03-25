@@ -129,7 +129,7 @@
 
     /* GRID */
     .grid-wrap { padding: 60px 60px 88px; max-width: 1280px; margin: 0 auto; }
-    .grid-header { margin-bottom: 28px; }
+    .grid-header { margin-bottom: 32px; }
     .grid-header h2 { font-size: 28px; font-weight: 700; color: var(--text-dark); margin-bottom: 5px; }
     .grid-header p  { font-size: 15px; color: var(--text-body); }
     .filter-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:30px; }
@@ -148,6 +148,16 @@
     /* SINGLE CARD FRONT */
     .flip-front { background:white; border:1.5px solid rgba(0,0,0,0.08); display:flex; flex-direction:column; transition:border-color .18s, box-shadow .18s; }
     .flip-wrap:hover .flip-front { border-color:rgba(9,212,200,0.3); box-shadow:0 6px 24px rgba(9,212,200,0.08); }
+
+    /* STATIC CARD (no flip) */
+    .static-card { background:white; border:1.5px solid rgba(0,0,0,0.08); border-radius:13px; padding:22px; display:flex; flex-direction:column; height:220px; transition:border-color .18s, box-shadow .18s; }
+    .static-card:hover { border-color:rgba(9,212,200,0.3); box-shadow:0 6px 24px rgba(9,212,200,0.08); }
+    .static-card .card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; }
+    .static-card .card-name { font-size:16px; font-weight:700; color:var(--text-dark); margin-bottom:5px; }
+    .static-card .card-tagline { font-size:13px; color:var(--text-body); line-height:1.5; flex:1; }
+    .static-guide-btn { display:inline-flex; align-items:center; gap:6px; margin-top:14px; font-size:12.5px; font-weight:700; text-decoration:none; color:var(--text-dark); border:1.5px solid rgba(0,0,0,0.12); border-radius:7px; padding:7px 13px; transition:all .18s; align-self:flex-start; }
+    .static-guide-btn:hover { border-color:var(--patina); color:var(--patina); }
+    .static-guide-btn svg { width:10px; height:10px; }
     .card-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; }
     .card-logo-box { width:44px; height:44px; border-radius:9px; background:var(--bg-light); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:7px; }
     .card-logo-box img { width:100%; height:100%; object-fit:contain; }
@@ -318,16 +328,9 @@
 <div class="grid-wrap">
   <div class="grid-header">
     <h2>All integrations</h2>
-    <p>Hover any card to learn more. Current customers can jump straight to the setup guide.</p>
+    <p>Current customers can jump straight to the setup guide for each integration.</p>
   </div>
-  <div class="filter-row">
-    <div class="ftab active" data-cat="all">All</div>
-    <div class="ftab" data-cat="CRM">CRM</div>
-    <div class="ftab" data-cat="Sales Tools">Sales Tools</div>
-    <div class="ftab" data-cat="Email">Email</div>
-    <div class="ftab" data-cat="Communication">Communication</div>
-    <div class="ftab" data-cat="Reporting">Reporting</div>
-  </div>
+
   <div class="cards-grid">
 
     <!-- ── GROUPED: CRM ── -->
@@ -413,175 +416,88 @@
       </div>
     </div>
 
-    <!-- SINGLE CARDS: individual tools -->
-    
-    <div class="flip-wrap" data-cat="Sales Tools">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7536b721decc287ee6a22_Vector%20(33).svg" alt="Gong" /></div>
-            <span class="cat-badge cat-sales">Sales Tools</span>
-          </div>
-          <div class="card-name">Gong</div>
-          <div class="card-tagline">Compare buyer decision data with your sales call recordings.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Gong</div>
-          <div class="back-desc">Pull conversation intelligence from Gong into Clozd. Correlate what reps said on calls with how buyers describe their decision — a uniquely complete picture of every deal.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
+    <!-- INDIVIDUAL STATIC CARDS -->
+
+    <div class="static-card" data-cat="Sales Tools">
+      <div class="card-top">
+        <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7536b721decc287ee6a22_Vector%20(33).svg" alt="Gong" /></div>
+        <span class="cat-badge cat-sales">Sales Tools</span>
       </div>
+      <div class="card-name">Gong</div>
+      <div class="card-tagline">Pull conversation intelligence into Clozd. Correlate what reps said on calls with how buyers describe their decision — a complete picture of every deal.</div>
+      <a href="https://help.clozd.com" target="_blank" class="static-guide-btn"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
     </div>
-    
-    <div class="flip-wrap" data-cat="Sales Tools">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7537f903cc0d738b07c24_Isolation_Mode%20(1).svg" alt="Crayon" /></div>
-            <span class="cat-badge cat-sales">Sales Tools</span>
-          </div>
-          <div class="card-name">Crayon</div>
-          <div class="card-tagline">Include real buyer insights directly in your competitive battlecards.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Crayon</div>
-          <div class="back-desc">Push Clozd buyer feedback into Crayon battlecards so competitive content is grounded in 1st-party buyer voice — not just secondary market research.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
+
+    <div class="static-card" data-cat="Sales Tools">
+      <div class="card-top">
+        <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7537f903cc0d738b07c24_Isolation_Mode%20(1).svg" alt="Crayon" /></div>
+        <span class="cat-badge cat-sales">Sales Tools</span>
       </div>
+      <div class="card-name">Crayon</div>
+      <div class="card-tagline">Push Clozd buyer feedback into Crayon battlecards so competitive content is grounded in 1st-party buyer voice — not just secondary research.</div>
+      <a href="https://help.clozd.com" target="_blank" class="static-guide-btn"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
     </div>
-    
-    <div class="flip-wrap" data-cat="Communication">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f753c0e81f635001915319_Group%201929%20(1).svg" alt="Slack" /></div>
-            <span class="cat-badge cat-comm">Communication</span>
-          </div>
-          <div class="card-name">Slack</div>
-          <div class="card-tagline">Automate notifications whenever an interview is published.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Slack</div>
-          <div class="back-desc">Route Clozd interview notifications, deal summaries, and insight digests to any Slack channel. Keep sales, marketing, and product teams in sync without extra effort.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
+
+    <div class="static-card" data-cat="Communication">
+      <div class="card-top">
+        <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f753c0e81f635001915319_Group%201929%20(1).svg" alt="Slack" /></div>
+        <span class="cat-badge cat-comm">Communication</span>
       </div>
+      <div class="card-name">Slack</div>
+      <div class="card-tagline">Route interview notifications, deal summaries, and insight digests to any Slack channel — keeping every team in sync the moment insights are published.</div>
+      <a href="https://help.clozd.com" target="_blank" class="static-guide-btn"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
     </div>
-    
-    <div class="flip-wrap" data-cat="Communication">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f753e44b5609651f2df0ee_Isolation_Mode%20(2).svg" alt="Calendly" /></div>
-            <span class="cat-badge cat-comm">Communication</span>
-          </div>
-          <div class="card-name">Calendly</div>
-          <div class="card-tagline">The most convenient way to schedule buyer interviews.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Calendly</div>
-          <div class="back-desc">Embed Calendly links in Clozd interview invitations. Buyers self-schedule at their convenience, eliminating back-and-forth and increasing response rates.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
+
+    <div class="static-card" data-cat="Communication">
+      <div class="card-top">
+        <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f753e44b5609651f2df0ee_Isolation_Mode%20(2).svg" alt="Calendly" /></div>
+        <span class="cat-badge cat-comm">Communication</span>
       </div>
+      <div class="card-name">Calendly</div>
+      <div class="card-tagline">Embed Calendly links in interview invitations so buyers self-schedule at their convenience — eliminating back-and-forth and boosting response rates.</div>
+      <a href="https://help.clozd.com" target="_blank" class="static-guide-btn"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
     </div>
-    
-    <div class="flip-wrap" data-cat="Reporting">
+
+    <!-- ── GROUPED: OPEN API / REPORTING ── -->
+    <div class="flip-wrap group-card" data-cat="API & Reporting">
       <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f75407aac266213cac686e_social-default-image%201.svg" alt="Power BI" /></div>
-            <span class="cat-badge cat-report">Reporting</span>
+        <div class="flip-front group-front">
+          <div class="group-left">
+            <div class="group-logos">
+              <div class="group-logo"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f75407aac266213cac686e_social-default-image%201.svg" alt="Power BI" /></div>
+              <div class="group-logo"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7542aacadb48cde6db606_Group%201947.svg" alt="Tableau" /></div>
+              <div class="group-logo"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/66df6004043ed55a31d16ccc_Excel%20Logo%201.png" alt="Excel" /></div>
+            </div>
+            <span class="cat-badge cat-report" style="margin-bottom:10px;">API & Reporting</span>
+            <div class="group-count">+ more</div>
           </div>
-          <div class="card-name">Power BI</div>
-          <div class="card-tagline">Visualize and share Clozd data insights your way.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Power BI</div>
-          <div class="back-desc">Connect Clozd exports to Power BI for custom dashboards. Combine buyer decision signals with sales, revenue, and pipeline metrics in a single view.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="flip-wrap" data-cat="Reporting">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/675337d615a3567be96baa3b_domo.svg" alt="DOMO" /></div>
-            <span class="cat-badge cat-report">Reporting</span>
+          <div class="group-right">
+            <div class="group-name">Open API</div>
+            <div class="group-tagline">Connect Clozd to any BI or reporting tool using our REST API. Pull structured interview data directly into Power BI, Tableau, Excel, Google Sheets, DOMO, and more.</div>
+            <div class="group-hint"><div class="group-hint-dot"></div>Hover to explore</div>
           </div>
-          <div class="card-name">DOMO</div>
-          <div class="card-tagline">Real-time data visualization and analytics for your buyer data.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
         </div>
-        <div class="flip-back single-back">
-          <div class="back-name">DOMO</div>
-          <div class="back-desc">Push Clozd interview data into DOMO for live analytics. Build dashboards that update as new interviews are published so leadership always has the latest intelligence.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="flip-wrap" data-cat="Reporting">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7542aacadb48cde6db606_Group%201947.svg" alt="Tableau" /></div>
-            <span class="cat-badge cat-report">Reporting</span>
+        <div class="flip-back group-back">
+          <div class="group-back-left">
+            <div class="group-back-title">Open API</div>
+            <div class="group-back-desc">Clozd's REST API gives you full access to your interview data in structured form. Build custom pipelines into any BI tool, data warehouse, or reporting environment your team already uses.</div>
           </div>
-          <div class="card-name">Tableau</div>
-          <div class="card-tagline">Create interactive, shareable dashboards with buyer data.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Tableau</div>
-          <div class="back-desc">Export structured Clozd data into Tableau for executive-grade visualization. Connect 1st-party buyer intelligence with revenue and pipeline outcomes.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="flip-wrap" data-cat="Reporting">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/66df6004043ed55a31d16ccc_Excel%20Logo%201.png" alt="Microsoft Excel" /></div>
-            <span class="cat-badge cat-report">Reporting</span>
+          <div class="group-back-right">
+            <div class="group-links">
+              <a href="https://help.clozd.com" target="_blank" class="group-link">
+                <div class="group-link-left"><div class="group-link-icon"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f75407aac266213cac686e_social-default-image%201.svg" alt="Power BI" /></div><span class="group-link-name">Power BI</span></div>
+                <span class="group-link-arrow">→</span>
+              </a>
+              <a href="https://help.clozd.com" target="_blank" class="group-link">
+                <div class="group-link-left"><div class="group-link-icon"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/64f7542aacadb48cde6db606_Group%201947.svg" alt="Tableau" /></div><span class="group-link-name">Tableau</span></div>
+                <span class="group-link-arrow">→</span>
+              </a>
+              <a href="https://help.clozd.com" target="_blank" class="group-link">
+                <div class="group-link-left"><div class="group-link-icon"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/66df6004043ed55a31d16ccc_Excel%20Logo%201.png" alt="Excel" /></div><span class="group-link-name">Excel / Google Sheets</span></div>
+                <span class="group-link-arrow">→</span>
+              </a>
+            </div>
           </div>
-          <div class="card-name">Microsoft Excel</div>
-          <div class="card-tagline">Organize, analyze, and visualize your buyer data.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Microsoft Excel</div>
-          <div class="back-desc">Export Clozd interview data to Excel for custom analysis, pivot tables, and reporting. A flexible option for teams that prefer spreadsheet-based workflows.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
-        </div>
-      </div>
-    </div>
-    
-    <div class="flip-wrap" data-cat="Reporting">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <div class="card-top">
-            <div class="card-logo-box"><img src="https://cdn.prod.website-files.com/602c29ed0ff4ed6f28e3a6dd/66df602def7177a64bdae901_Sheets-icon.png" alt="Google Sheets" /></div>
-            <span class="cat-badge cat-report">Reporting</span>
-          </div>
-          <div class="card-name">Google Sheets</div>
-          <div class="card-tagline">Create, edit, and collaborate on buyer data online.</div>
-          <div class="card-hint"><div class="hint-dot"></div>Hover to learn more</div>
-        </div>
-        <div class="flip-back single-back">
-          <div class="back-name">Google Sheets</div>
-          <div class="back-desc">Send Clozd data exports to Google Sheets for live, shareable reporting. Teams across functions can collaborate without needing a dedicated BI tool.</div>
-          <a href="https://help.clozd.com" target="_blank" class="back-link"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Setup guide</a>
         </div>
       </div>
     </div>
@@ -613,7 +529,7 @@
       document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
       this.classList.add('active');
       const cat = this.dataset.cat;
-      document.querySelectorAll('.flip-wrap').forEach(card => {
+      document.querySelectorAll('.flip-wrap, .static-card').forEach(card => {
         card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
       });
     });
